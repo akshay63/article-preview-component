@@ -1,0 +1,14 @@
+{
+  "name": "article-preview-component",
+  "version": "1.0.0",
+  "description": "Small JS Project",
+  "main": "script.js",
+  "scripts": {
+    "compile": "sass --watch --no-source-map scss/main.scss css/style.css"
+  },
+  "author": "Akshay Meshram",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.58.3"
+  }
+}
