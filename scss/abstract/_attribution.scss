@@ -1,0 +1,18 @@
+@use "../base/variables";
+
+.attribution {
+  position: absolute;
+  bottom: 5px;
+  color: variables.$dark-grayish-blue;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: variables.$dark-grayish-blue;
+  text-decoration: underline;
+}
+
+.attribution a:hover {
+  color: variables.$dark-grayish-blue;
+}
