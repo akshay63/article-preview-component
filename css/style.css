@@ -49,7 +49,18 @@ ul {
   color: hsl(238, 29%, 16%);
 }
 
-/* --------------- FAQ ACCORDIAN CARD ---------------- */
+.article__socialmedia .sharebtn, .article__userbox--sharebtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: hsl(210, 46%, 95%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
 .article {
   max-width: 732px;
   height: 280px;
@@ -57,6 +68,7 @@ ul {
   grid-template-columns: 288px 444px;
   border-radius: 10px;
   background-color: #fff;
+  box-shadow: -1px 12px 15px 2px rgba(0, 0, 0, 0.3);
 }
 .article__img {
   width: 285px;
@@ -69,6 +81,7 @@ ul {
 .article__content {
   font-size: 13.5px;
   padding: 3.4rem 3.8rem;
+  position: relative;
 }
 .article__content--heading {
   margin-bottom: 15px;
@@ -78,4 +91,141 @@ ul {
   font-size: 13.3px;
   line-height: 1.5;
   color: hsl(214, 17%, 51%);
+}
+.article__userbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  position: relative;
+  top: 2px;
+}
+.article__userbox--user {
+  display: flex;
+  align-items: center;
+}
+.article__userbox--user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+.article__userbox--user-info .username {
+  font-weight: bold;
+  font-size: 13px;
+}
+.article__userbox--user-info .date {
+  font-size: 13px;
+  position: relative;
+  top: 2px;
+  color: hsl(212, 23%, 69%);
+}
+.article__userbox--sharebtn:hover, .article__userbox--sharebtn.active {
+  background: hsl(214, 17%, 51%);
+}
+.article__userbox--sharebtn:hover .icon path, .article__userbox--sharebtn.active .icon path {
+  fill: #fff;
+}
+.article__socialmedia {
+  width: 248px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(238, 29%, 16%);
+  color: hsl(212, 23%, 69%);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 9.4rem;
+  right: -6.6rem;
+  transition: all 0.3s ease-in;
+  animation: animUp 0.4s forwards;
+}
+.article__socialmedia::after {
+  position: absolute;
+  content: "";
+  width: 22px;
+  height: 13px;
+  background: hsl(238, 29%, 16%);
+  bottom: -12px;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+.article__socialmedia p {
+  margin-right: 20px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 12px;
+}
+.article__socialmedia .icons {
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+}
+.article__socialmedia a:not(:last-child) {
+  margin-right: 15px;
+}
+.article__socialmedia.hide {
+  display: none;
+}
+.article__socialmedia .sharebtn {
+  display: none;
+}
+
+@keyframes animUp {
+  0% {
+    transform: translate(0, -10px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .article {
+    grid-template-columns: auto;
+    grid-template-rows: 200px min-content;
+    height: auto;
+    width: 328px;
+  }
+  .article__img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-position: 0px -14px;
+    border-bottom-left-radius: 0px;
+  }
+  .article__content {
+    padding: 36px 32px;
+    font-size: 11px;
+    padding-bottom: 25px;
+  }
+  .article__content--heading {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .article__content--para {
+    font-size: 13.3px;
+    line-height: 1.5;
+  }
+  .article__userbox {
+    margin-top: 31px;
+  }
+  .article__userbox--sharebtn {
+    z-index: 100;
+  }
+  .article__socialmedia {
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: 87px;
+    animation: none;
+    justify-content: flex-start;
+  }
+  .article__socialmedia p {
+    margin-left: 32px;
+  }
+  .article__socialmedia::after {
+    display: none;
+  }
 }

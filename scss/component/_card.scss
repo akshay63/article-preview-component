@@ -1,6 +1,16 @@
 @use "../base/variables";
+@use "../base/mixins";
 
-/* --------------- FAQ ACCORDIAN CARD ---------------- */
+%sharebtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: variables.$light-grayish-blue;
+  @include mixins.centerVH;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
 .article {
   max-width: 732px;
   height: 280px;
@@ -8,6 +18,7 @@
   grid-template-columns: 288px 444px;
   border-radius: 10px;
   background-color: #fff;
+  box-shadow: -1px 12px 15px 2px rgb(0 0 0 / 30%);
 
   &__img {
     width: 285px;
@@ -21,6 +32,7 @@
   &__content {
     font-size: 13.5px;
     padding: 3.4rem 3.8rem;
+    position: relative;
 
     &--heading {
       margin-bottom: 15px;
@@ -30,6 +42,174 @@
       font-size: 13.3px;
       line-height: 1.5;
       color: variables.$dark-blue;
+    }
+  }
+
+  &__userbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    position: relative;
+    top: 2px;
+
+    &--user {
+      display: flex;
+      align-items: center;
+    }
+
+    &--user img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+
+    &--user-info .username {
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    &--user-info .date {
+      font-size: 13px;
+      position: relative;
+      top: 2px;
+      color: variables.$grayish-blue;
+    }
+
+    &--sharebtn {
+      @extend %sharebtn;
+    }
+
+    &--sharebtn:hover,
+    &--sharebtn.active {
+      background: variables.$dark-blue;
+    }
+
+    &--sharebtn:hover .icon path,
+    &--sharebtn.active .icon path {
+      fill: #fff;
+    }
+  }
+
+  &__socialmedia {
+    width: 248px;
+    height: 55px;
+    @include mixins.centerVH;
+    background: variables.$dark-grayish-blue;
+    color: variables.$grayish-blue;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 9.4rem;
+    right: -6.6rem;
+    transition: all 0.3s ease-in;
+    animation: animUp 0.4s forwards;
+  }
+
+  &__socialmedia::after {
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: 13px;
+    background: variables.$dark-grayish-blue;
+    bottom: -12px;
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+  }
+
+  &__socialmedia p {
+    margin-right: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 12px;
+  }
+
+  &__socialmedia .icons {
+    display: flex;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  &__socialmedia a:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &__socialmedia.hide {
+    display: none;
+  }
+
+  &__socialmedia .sharebtn {
+    @extend %sharebtn;
+    display: none;
+  }
+}
+
+@keyframes animUp {
+  0% {
+    transform: translate(0, -10px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+// Media Queries Start Here
+
+@media only screen and (max-width: 900px) {
+  .article {
+    grid-template-columns: auto;
+    grid-template-rows: 200px min-content;
+    // height: 432px;
+    height: auto;
+    width: 328px;
+
+    &__img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-position: 0px -14px;
+      border-bottom-left-radius: 0px;
+    }
+
+    &__content {
+      padding: 36px 32px;
+      font-size: 11px;
+      padding-bottom: 25px;
+
+      &--heading {
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+      &--para {
+        font-size: 13.3px;
+        line-height: 1.5;
+      }
+    }
+
+    &__userbox {
+      margin-top: 31px;
+
+      &--sharebtn {
+        z-index: 100;
+      }
+    }
+
+    &__socialmedia {
+      bottom: 0;
+      width: 100%;
+      right: 0;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      height: 87px;
+      animation: none;
+      justify-content: flex-start;
+    }
+
+    &__socialmedia p {
+      margin-left: 32px;
+    }
+
+    &__socialmedia::after {
+      display: none;
     }
   }
 }
