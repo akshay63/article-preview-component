@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://www.frontendmentor.io/solutions/faq-accordion-card-nvrYhsaQn-](https://www.frontendmentor.io/solutions/faq-accordion-card-nvrYhsaQn-)
-- Live Site URL: [https://faq-accordion-card-xi-seven.vercel.app/](https://faq-accordion-card-xi-seven.vercel.app/)
+- Solution URL: [https://www.frontendmentor.io/solutions/article-preview-component-gNVZAh3qEy](https://www.frontendmentor.io/solutions/article-preview-component-gNVZAh3qEy)
+- Live Site URL: [https://article-preview-component-gamma-ivory.vercel.app/](https://article-preview-component-gamma-ivory.vercel.app/)
 
 ## My process
 
